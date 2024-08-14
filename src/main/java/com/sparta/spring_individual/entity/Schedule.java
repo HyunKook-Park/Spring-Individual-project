@@ -4,6 +4,7 @@ import com.sparta.spring_individual.Controller.ScheduleController;
 import com.sparta.spring_individual.request.ScheduleRequestSaveDto;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
@@ -21,8 +22,6 @@ public class Schedule {
         this.toDo=scheduleRequestDto.getTodo();
         this.managerName=scheduleRequestDto.getManagerName();
         this.secretNumber=scheduleRequestDto.getSecretNumber();
-        this.creationDate=scheduleRequestDto.getCreationDate();
-        this.modificationDate=scheduleRequestDto.getModificationDate();
     }
 
 

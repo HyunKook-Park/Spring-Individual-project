@@ -9,7 +9,4 @@ public class ScheduleRequestSaveDto {
     private String todo;
     private String managerName;
     private String secretNumber;
-    private String creationDate;
-    private String ModificationDate;
-
 }

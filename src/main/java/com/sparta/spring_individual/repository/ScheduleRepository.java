@@ -1,7 +1,7 @@
 package com.sparta.spring_individual.repository;
 
 import com.sparta.spring_individual.entity.Schedule;
-import com.sparta.spring_individual.response.ScheduleResponseDto;
+import com.sparta.spring_individual.response.scheduleResponseDto;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -22,14 +22,13 @@ public class ScheduleRepository {
     public Schedule save(Schedule schedule) {
         // DB 저장(repository) 불러오기
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String sql = "INSERT INTO schedule (todo, managerName, secretNumber, creationDate) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO schedule (todo, manager_name, secret_number, creation_date, modification_date) VALUES (?,?,?,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)";
         jdbcTemplate.update(con -> {
                     PreparedStatement ps = con.prepareStatement(sql,
                             PreparedStatement.RETURN_GENERATED_KEYS);
                     ps.setString(1,schedule.getToDo());
                     ps.setString(2,schedule.getManagerName());
                     ps.setString(3,schedule.getSecretNumber());
-                    ps.setString(4,schedule.getCreationDate());
                     return ps;
                 },
                 keyHolder);
@@ -37,17 +36,17 @@ public class ScheduleRepository {
         return schedule;
     }
 
-    public List<ScheduleResponseDto> findAll() {
+    public List<scheduleResponseDto> findAll() {
         // DB 조회
         String sql = "SELECT * FROM schedule";
-        return jdbcTemplate.query(sql, new RowMapper<ScheduleResponseDto>() {
+        return jdbcTemplate.query(sql, new RowMapper<scheduleResponseDto>() {
             @Override
-            public ScheduleResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
+            public scheduleResponseDto mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Long id = rs.getLong("id");
                 String todo = rs.getString("todo");
                 String managerName = rs.getString("managerName");
                 String creationDate = rs.getString("creationDate");
-                return new ScheduleResponseDto(id,todo,managerName,creationDate);
+                return new scheduleResponseDto(id,todo,managerName,creationDate);
             }
         });
     }

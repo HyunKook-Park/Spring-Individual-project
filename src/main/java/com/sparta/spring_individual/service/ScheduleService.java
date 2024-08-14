@@ -3,16 +3,10 @@ package com.sparta.spring_individual.service;
 import com.sparta.spring_individual.entity.Schedule;
 import com.sparta.spring_individual.repository.ScheduleRepository;
 import com.sparta.spring_individual.request.ScheduleRequestSaveDto;
-import com.sparta.spring_individual.response.ScheduleResponseDto;
+import com.sparta.spring_individual.response.scheduleResponseDto;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -24,7 +18,7 @@ public class ScheduleService {
         this.scheduleRepository = new ScheduleRepository(jdbcTemplate);
     }
 
-    public ScheduleResponseDto createSchedule(ScheduleRequestSaveDto scheduleRequestSaveDto){
+    public scheduleResponseDto createSchedule(ScheduleRequestSaveDto scheduleRequestSaveDto){
         // RequestDto -> Entity
         Schedule schedule = new Schedule(scheduleRequestSaveDto);
 
@@ -32,10 +26,10 @@ public class ScheduleService {
         Schedule savedSchedule = scheduleRepository.save(schedule);
 
         // Entity -> ResponseDto
-        ScheduleResponseDto scheduleResponseDto = new ScheduleResponseDto(savedSchedule);
+        scheduleResponseDto scheduleResponseDto = new scheduleResponseDto(savedSchedule);
         return  scheduleResponseDto;
     }
-    public List<ScheduleResponseDto> getSchedule(){
+    public List<scheduleResponseDto> getSchedule(){
         // DB 조회
         return scheduleRepository.findAll();
     }

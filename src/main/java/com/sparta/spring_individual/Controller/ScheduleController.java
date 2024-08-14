@@ -1,9 +1,8 @@
 package com.sparta.spring_individual.Controller;
 
 
-import com.sparta.spring_individual.entity.Schedule;
 import com.sparta.spring_individual.request.ScheduleRequestSaveDto;
-import com.sparta.spring_individual.response.ScheduleResponseDto;
+import com.sparta.spring_individual.response.scheduleResponseDto;
 import com.sparta.spring_individual.service.ScheduleService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +19,7 @@ public class ScheduleController {
     }
 
     @PostMapping("/schedule")
-    public ScheduleResponseDto CreateSchedule(@RequestBody ScheduleRequestSaveDto scheduleRequestDto) {
+    public scheduleResponseDto CreateSchedule(@RequestBody ScheduleRequestSaveDto scheduleRequestDto) {
         return scheduleService.createSchedule(scheduleRequestDto);
     }
 }
