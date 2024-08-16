@@ -5,7 +5,7 @@ import lombok.Getter;
 
 
 @Getter
-public class ScheduleRequestSaveDto {
+public class ScheduleRequestDto {
     private String todo;
     private String managerName;
     private String secretNumber;

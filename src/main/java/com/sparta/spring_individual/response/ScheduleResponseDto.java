@@ -4,7 +4,7 @@ import com.sparta.spring_individual.entity.Schedule;
 import lombok.Getter;
 
 @Getter
-public class scheduleResponseDto {
+public class ScheduleResponseDto {
     private long id;
     private String toDo;
     private String managerName;
@@ -13,7 +13,7 @@ public class scheduleResponseDto {
     private String modificationDate;
 
 
-    public scheduleResponseDto(Schedule savedSchedule) {
+    public ScheduleResponseDto(Schedule savedSchedule) {
         this.id = savedSchedule.getId();
         this.toDo = savedSchedule.getToDo();
         this.managerName = savedSchedule.getManagerName();
@@ -21,7 +21,7 @@ public class scheduleResponseDto {
         this.modificationDate = savedSchedule.getModificationDate();
     }
 
-    public scheduleResponseDto(Long id, String todo, String managerName, String creationDate) {
+    public ScheduleResponseDto(Long id, String todo, String managerName, String creationDate) {
 
     }
 }

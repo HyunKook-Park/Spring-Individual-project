@@ -1,13 +1,14 @@
 package com.sparta.spring_individual.entity;
 
-import com.sparta.spring_individual.Controller.ScheduleController;
-import com.sparta.spring_individual.request.ScheduleRequestSaveDto;
+import com.sparta.spring_individual.request.ScheduleRequestDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
+@NoArgsConstructor
+
 public class Schedule {
 
 
@@ -18,11 +19,13 @@ public class Schedule {
     private String creationDate;
     private String modificationDate;
 
-    public Schedule(ScheduleRequestSaveDto scheduleRequestDto) {
+    public Schedule(ScheduleRequestDto scheduleRequestDto) {
         this.toDo=scheduleRequestDto.getTodo();
         this.managerName=scheduleRequestDto.getManagerName();
         this.secretNumber=scheduleRequestDto.getSecretNumber();
     }
+
+
 
 
 }

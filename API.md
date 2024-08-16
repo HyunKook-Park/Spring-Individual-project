@@ -2,13 +2,13 @@
 
 # Step 1. (API 명세서)
 
-| API 명    | Method | URL                      | Request | Response |    상태코드    | 
-|----------|--------|--------------------------|---------|:--------:|:----------:|
-| 일정 등록    | POST   | /api/schedule            | body    |   등록정보   | 200: 정상 등록 |
-| 일정 조회    | GET    | /api/schedule/{schedule} | param   | 단건 응답 정보 | 200: 정상 조회 |
-| 일정 목록 조회 | GET    | /api/schedule            | param   | 다건 응답 정보 | 200: 정상 조회 |
-| 일정 수정    | PUT    | /api/schedule/{schedule}      | body    |  수정 정보   | 200: 정상 수정 |
-| 일정 삭제    | DELETE | /api/schedule/{schedule}      | param   |    -     | 200: 정상 삭제 |
+| API 명    | Method | URL                | Request | Response |    상태코드    | 
+|----------|--------|--------------------|---------|:--------:|:----------:|
+| 일정 등록    | POST   | /api/schedule      | body    |   등록정보   | 200: 정상 등록 |
+| 일정 조회    | GET    | /api/schedule/{id} | path    | 단건 응답 정보 | 200: 정상 조회 |
+| 일정 목록 조회 | GET    | /api/schedule      | param   | 다건 응답 정보 | 200: 정상 조회 |
+| 일정 수정    | PUT    | /api/schedule/{id} | body    |  수정 정보   | 200: 정상 수정 |
+| 일정 삭제    | DELETE | /api/schedule/{id} | path    |    -     | 200: 정상 삭제 |
 
 
 # Step 2. (ERD 작성)
